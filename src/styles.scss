@@ -1,1 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/scss/bootstrap';
+
+body {
+  color: #363636;
+  overflow: hidden;
+}
+
+html,
+body,
+app-root,
+app-main-page {
+  height: 100%;
+}
+app-root,
+app-main-page {
+  display: block;
+}
+app-main-page > .container-fluid {
+  height: 100%;
+
+  & > .row {
+    height: 100%;
+
+    & > .col-xs,
+    & > .col-sm,
+    & > .col-md,
+    & > .col-lg {
+      height: 100%;
+    }
+  }
+}
+
+article p {
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+}
