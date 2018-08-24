@@ -1,0 +1,19 @@
+.main-container {
+  .left-side {
+
+  }
+
+  .right-side {
+    padding-right: 0;
+  }
+}
+
+article {
+  padding: 4rem;
+  height: 100%;
+  overflow-y: auto;
+
+  .content {
+    margin-top: 50px;
+  }
+}

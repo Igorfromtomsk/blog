@@ -15,4 +15,8 @@ export class PostsRepository {
   getPosts(): Post[] {
     return this.posts;
   }
+
+  getLastPost(): Post {
+    return this.posts[0];
+  }
 }

@@ -1,0 +1,18 @@
+<div class="container-fluid main-container">
+  <div class="row">
+    <div class="col-sm left-side bg-dark"></div>
+    <div class="col-sm right-side">
+      <article class="current-post" #article>
+        <div class="d-flex justify-content-between">
+          <h2>{{post.title}}</h2>
+          <div class="controls">
+            <button class="edit btn btn-link btn-sm text-dark" (click)="edit()"><fa-icon [icon]="faEdit"></fa-icon></button>
+            <button class="edit btn btn-sm"><fa-icon [icon]="faTrash"></fa-icon></button>
+          </div>
+        </div>
+        <small>{{post.created_at}}</small>
+        <div class="content" [innerHtml]="post.text"></div>
+      </article>
+    </div>
+  </div>
+</div>

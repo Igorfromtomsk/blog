@@ -6,6 +6,7 @@ import {RouterModule} from '@angular/router';
 import {ModelModule} from './model/model.module';
 import {BlogModule} from './blog/blog.module';
 import {MainPageComponent} from './blog/main-page/main-page.component';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
