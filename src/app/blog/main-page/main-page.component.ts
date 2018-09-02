@@ -20,30 +20,37 @@ export class MainPageComponent implements OnInit {
   }
 
   edit() {
-    const content = this.article.nativeElement;
-
+    const content = this.article.nativeElement.innerHTML;
     const textarea = document.createElement('textarea');
-    const container = document.createElement('div');
     const iframe = '<iframe style="width: 100%; height: 100%;" src="javascript: document.open(); ' +
       'document.domain=\'' + document.domain + '\'; document.close();" frameborder="0"></iframe>';
-    const parent = content.parentNode;
+    const parent = this.article.nativeElement;
 
-    textarea.value = content.innerHTML;
-
-    parent.insertBefore(container, content);
-    container.appendChild(content);
-    container.appendChild(textarea);
-
-    content.style.display = 'none';
+    textarea.value = content;
     textarea.style.display = 'none';
 
-    container.innerHTML = iframe + container.innerHTML;
+    parent.innerHTML = iframe;
+    parent.appendChild(textarea);
 
-    const Frame = container.childNodes[0];
-    const FrameDoc = Frame.contentDocument;
+    const Frame: Node = parent.childNodes[0];
+    const FrameDoc = (<HTMLIFrameElement> Frame).contentDocument;
+
+    function getStyles() {
+      const tags = document.getElementsByTagName('style');
+      let styles = '';
+
+      for (let i = 0; i < tags.length; ++i) {
+        styles += tags[i].innerText;
+      }
+
+      return styles;
+    }
 
     FrameDoc.open();
-    FrameDoc.write('<html><head></head><body>' + textarea.value + '&nbsp;</body></html>');
+    FrameDoc.write(`<html>
+        <head><style>${getStyles()}</style></head>
+        <body class="iframe">${textarea.value}&nbsp;</body>
+      </html>`);
     FrameDoc.close();
     FrameDoc.designMode = 'on';
   }

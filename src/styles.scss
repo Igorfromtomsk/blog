@@ -31,7 +31,24 @@ app-main-page > .container-fluid {
   }
 }
 
-article p {
-  font-size: 1.2rem;
-  line-height: 1.8rem;
+article {
+  padding: 4rem;
+  height: 100%;
+  overflow-y: auto;
+}
+
+article,
+.iframe {
+  .controls {
+    height: 31px;
+  }
+
+  .content {
+    margin-top: 50px;
+  }
+
+  .created_at {
+    display: block;
+    margin-top: 5px;
+  }
 }
